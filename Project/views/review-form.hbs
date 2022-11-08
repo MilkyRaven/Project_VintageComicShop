@@ -1,5 +1,5 @@
-<h2>Leave a review about {{title}} by {{author}} here</h2>
-<form action="/{{_id}}/review/post" method="post">
+<h2>Leave a review about {{comicToReview.title}} by {{comicToReview.author}} here</h2>
+<form action="/{{comicToReview._id}}/review/post" method="post">
   <label> Title:
     <input type="text" name="title" value="Title"/>
   </label>

@@ -193,8 +193,8 @@ const createSeeds = async function () {
     //console.log("users created")
 //---------------------users seeds --------------
 //---------------------review seeds --------------
-  //const deleteAllreview = await Review.deleteMany()
-  //console.log("reviews Db clean")
+  const deleteAllreview = await Review.deleteMany()
+  console.log("reviews Db clean")
 
     //const createAllreview = await Review.create(reviews)
     //console.log("reviews created")

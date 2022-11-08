@@ -1,17 +1,18 @@
 <div class="product-details">
     <div class="product-details-card">
-    <img src="{{img}}" alt="">
-    <h2>{{title}}</h2>
-    <h4>Year: {{year}}</h4>
-    <h4>Condition: {{condition}}</h4>
-    <h3>${{price}}</h3>
-    <form action="/catalogue/{{_id}}/add" method="post">
+    <img src="{{comic.img}}" alt="">
+    <h2>{{comic.title}}</h2>
+    <h4>Year: {{comic.year}}</h4>
+    <h4>Condition: {{comic.condition}}</h4>
+    <h3>${{comic.price}}</h3>
+    <form action="/catalogue/{{comic._id}}/add" method="post">
     <button type="submit">ADD TO CART</button>
     </form>
-    <p>{{synopsis}}</p>
+    <p>{{comic.synopsis}}</p>
     <br>
     <hr>
     <br>
+
         <div class="reviews">
             <h2>Reviews</h2>
             {{#each reviewIds}}

@@ -62,7 +62,7 @@ router.get("/catalogue", async (req, res, next) => {
 router.get("/catalogue/:comicId", async (req, res, next) => {
   try{
     const currUser = req.session.currentUser
-    const comic = await Comic.findById(req.params.comicId)
+    const comic = await Comic.findById(req.params.comicId).populate("reviewIds")
     console.log(comic)
     res.render("product-details", {comic, currUser})
   } catch (err){
@@ -151,10 +151,11 @@ router.get("/myprofile", isLoggedIn, async(req, res, next) => {
 //review page
 router.get("/:comicId/review", isLoggedIn, async(req, res, next) => {
   try{
+    const currUser = req.session.currentUser
     const {comicId} = req.params
     const comicToReview = await Comic.findById(comicId)
     console.log(comicToReview)
-    res.render("review-form", {comicToReview, currUser})
+    res.render("review-form", {currUser, comicToReview})
   }
   catch(err){
     console.log(err)

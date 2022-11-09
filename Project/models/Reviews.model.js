@@ -7,7 +7,7 @@ const reviewSchema = new Schema(
     username: String,
     comicId: {type: Schema.Types.ObjectId, ref: 'Comic'},
     content: String,
-    rating: String,
+    rating: Number,
   }
 );
 

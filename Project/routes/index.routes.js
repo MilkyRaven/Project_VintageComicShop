@@ -163,8 +163,8 @@ router.get("/:comicId/review", isLoggedIn, async(req, res, next) => {
   const user = req.session.currentUser
   try{
         const {comicId} = req.params
-        const {title, star, description} = req.body
-        const newReview = await Review.create({userId: user, username: user.username, comicId: comicId, title: title, content: description, rating: star})
+        const {title, quantity, description} = req.body
+        const newReview = await Review.create({userId: user, username: user.username, comicId: comicId, title: title, content: description, rating: quantity})
         console.log(newReview)
         const updateComic = await Comic.findByIdAndUpdate(comicId, {reviewIds: newReview})
         res.redirect("/")

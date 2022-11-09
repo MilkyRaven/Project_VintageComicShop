@@ -92,7 +92,11 @@ header {
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
-  margin: 10px
+  margin: 10px;
+  position: sticky;
+  top: 0;
+  background-color: #F9F2EE;
+  z-index: 2;
 }
 .logo {
   display: flex;
@@ -123,7 +127,7 @@ header {
 #tv {
   width: 300px;
   margin-left: 50px;
-  z-index: 1;
+  z-index: 10;
 }
 .video {
   width: 215px;
@@ -314,7 +318,7 @@ i {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
-height: 70px;
+  height: 70px;
 }
 .address {
   padding: 15px;
@@ -435,7 +439,7 @@ details[open] summary::after {
   flex-direction: column;
   overflow: hidden;
   animation: closeMenu 300ms ease-in-out forwards;
-  position: fixed;
+  position: absolute !important;
 }
 .menu a {
   padding: 5px 10px;

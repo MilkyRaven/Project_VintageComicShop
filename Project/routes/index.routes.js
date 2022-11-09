@@ -17,40 +17,32 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
     const currUser = req.session.currentUser
     const findCarrito = await Cart.findOne({ userId: currUser})
     const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId')
-    
+    //TEST
     //We get an array with the price of each comic
     const priceArray = [];
       carritoItems.map((comic) => {
         priceArray.push(comic.comicId.price);
       })
+
+    //TEST -----
+    let somethingOnCart = false
+    if (priceArray[0]){
+      somethingOnCart = true
+    }
+    console.log(somethingOnCart)
     //console.log(priceArray)
     // We sum the array prices to get the total
-    const cartSum = priceArray.reduce(
+    let cartSum = priceArray.reduce(
       (previousValue, currentValue) => previousValue + currentValue,
       0
     );
     //console.log(cartSum)
-    res.render("cart", {carritoItems, currUser, cartSum}) 
+    res.render("cart", {carritoItems, currUser, cartSum, somethingOnCart}) 
   }
   catch(err){
     console.log(err)
   }
 })
-
-// router.get("/cart", async (req, res) => {
-//   console.log("Done")
-//   try {
-//     const user = req.session.currentUser
-//     const carrito = await Cart.findOne({userId: user})
-//     const carrItems = await Item.find({cartId: carrito._id})
-//     res.render("cart", carrItems)
-//   } catch (err) {
-//     console.log(err)
-//   }
-//   console.log("carttt")
-// })
-
-
 
 
 /* GET home page */

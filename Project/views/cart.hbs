@@ -6,14 +6,18 @@
             <h3>{{this.comicId.title}}</h3>
             <p>${{this.comicId.price}}</p>
             <img src="{{this.comicId.img}}" alt="">
-            <form action="/cart/{{_id}}/duplicate" method="post"> <button type="submit">+</button></form>
+            <form action="/cart/{{_id}}/duplicate" method="post">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="comicQuantity" placeholder="1" min="1" max="9">
+            <button type="submit">Update Quantity</button>
+            </form>
             <form action="/cart/{{_id}}/delete" method="post">
                 <button type="submit">Delete Item</button>
             </form>
         </div>
     {{/each}}
         <form action="cart/checkout" method="post">
-        <h3>Total Price ${{cartSum}}</h3>
+        <h3>Total Price ${{roundedTotal}}</h3>
             <button type="submit">CHECKOUT</button>
         </form>
 </div>

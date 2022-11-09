@@ -27,8 +27,8 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
       (previousValue, currentValue) => previousValue + currentValue,
       0
     );
-   console.log(cartSum)
-   res.render("cart", {carritoItems, currUser, cartSum}) 
+   let roundedTotal = Math.ceil(cartSum * 100) / 100
+   res.render("cart", {carritoItems, currUser, roundedTotal}) 
   }
   catch(err){
     console.log(err)
@@ -40,7 +40,7 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
 router.get("/", async (req, res, next) => {
   const currUser = req.session.currentUser
   try{
-    //TEST
+    //checking if there's something inside the cart
     if (currUser) {
       const findCarrito = await Cart.findOne({ userId: currUser});
       const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
@@ -107,13 +107,29 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
     //console.log(newItem)
     const findCarrito = await Cart.findOne({ userId: currUser})
     //console.log(findCarrito)
-    const addItemtoCarro = await Item.updateMany({newItem, cartId: findCarrito})
+    const addItemtoCarro = await Item.updateMany({newItem, cartId: findCarrito, quantity: 1})
     //console.log(addItemtoCarro)
     res.redirect("/catalogue")
   }
   catch(err){console.log(err)}
 })
-
+//add item to the cart
+  router.post("/cart/:itemId/duplicate", isLoggedIn, async (req, res, next) => {
+    const {itemId} = req.params
+    const {comicQuantity} = req.body
+    let toNumber = +comicQuantity
+    try{
+      const findItem = await Item.findByIdAndUpdate(itemId, {quantity: toNumber})
+      console.log(findItem)
+      
+      //const editQuantity = await Item.findOneAndUpdate({findItem}, {quantity: toNumber} )
+      //const editItemQuantity = await Item.findByIdAndUpdate({itemId},{quantity: toNumber})
+      res.redirect("/cart")
+    }
+    catch(err){
+      console.log(err)
+    }
+  }) 
 //delete item from the cart
   router.post("/cart/:itemId/delete", isLoggedIn, async (req, res, next) => {
     const {itemId} = req.params
@@ -195,7 +211,7 @@ router.get("/:comicId/review", isLoggedIn, async(req, res, next) => {
         const {title, quantity, description} = req.body
         const newReview = await Review.create({userId: user, username: user.username, comicId: comicId, title: title, content: description, rating: quantity})
         //console.log(newReview)
-        //testing average review
+        //average review
         const updateComic = await Comic.findByIdAndUpdate(comicId, {$push: {reviewIds: newReview}}, {new: true})
         const updateComicRatings = await Comic.findByIdAndUpdate(comicId, {$push: {ratingsArray: quantity}}, {new: true})
         res.redirect("/")

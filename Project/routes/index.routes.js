@@ -29,8 +29,8 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
       (previousValue, currentValue) => previousValue + currentValue,
       0
     );
-    console.log(cartSum)
-    res.render("cart", {carritoItems, currUser}) 
+    //console.log(cartSum)
+    res.render("cart", {carritoItems, currUser, cartSum}) 
   }
   catch(err){
     console.log(err)

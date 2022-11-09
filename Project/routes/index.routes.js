@@ -39,10 +39,14 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
 /* GET home page */
 router.get("/", async (req, res, next) => {
   const currUser = req.session.currentUser
-  
-  //TEST
   try{
-    res.render("index", {currUser});
+    //TEST
+    if (currUser) {
+      const findCarrito = await Cart.findOne({ userId: currUser});
+      const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
+      res.render("index", {currUser, carritoItems});
+    } else {
+    res.render("index", {currUser});}
   }
   catch(err){
     console.log(err)
@@ -53,7 +57,13 @@ router.get("/catalogue", async (req, res, next) => {
   try{
   const currUser = req.session.currentUser
   const allComics = await Comic.find()
-  res.render("catalogue", {allComics, currUser})
+  //CHECK IF ELEMENTS ARE ON CART 
+  if (currUser) {
+    const findCarrito = await Cart.findOne({ userId: currUser});
+    const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
+    res.render(res.render("catalogue", {allComics, currUser, carritoItems}));
+  } else {
+    res.render("catalogue", {allComics, currUser})}
   } catch (err) {
     console.log("Error getting catalogue:" + err)
   }
@@ -69,7 +79,14 @@ router.get("/catalogue/:comicId", async (req, res, next) => {
       return Number(str)})
     let sum = ratingsToNum.reduce((partialSum, a) => partialSum + a, 0);
     let averageRating = Math.round(sum / ratings.length * 10) / 10
+    //CHECK IF ELEMENTS ARE ON CART 
+  if (currUser) {
+    const findCarrito = await Cart.findOne({ userId: currUser});
+    const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
+    res.render(res.render("product-details", {comic, currUser, averageRating, carritoItems}));
+  } else {
     res.render("product-details", {comic, currUser, averageRating})
+  }
   } catch (err){
     console.log("Error getting product details:" + err)
   }
@@ -145,7 +162,10 @@ router.get("/myprofile", isLoggedIn, async(req, res, next) => {
   const currUser = req.session.currentUser
   try{
     const findUser = await User.findById(currUser).populate("purchases")
-    res.render("profile", {findUser, currUser})
+    //check if there are items on the cart
+    const findCarrito = await Cart.findOne({ userId: currUser});
+    const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
+    res.render("profile", {findUser, currUser, carritoItems})
   }
   catch(err){
     console.log(err)
@@ -158,8 +178,11 @@ router.get("/:comicId/review", isLoggedIn, async(req, res, next) => {
     const currUser = req.session.currentUser
     const {comicId} = req.params
     const comicToReview = await Comic.findById(comicId)
-    console.log(comicToReview)
-    res.render("review-form", {currUser, comicToReview})
+    //console.log(comicToReview)
+    //check if there's something on the cart
+    const findCarrito = await Cart.findOne({ userId: currUser});
+    const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
+    res.render("review-form", {currUser, comicToReview, carritoItems})
   }
   catch(err){
     console.log(err)

@@ -4,6 +4,7 @@
     {{#each carritoItems }}
         <div class="item-card">
             <h3>{{this.comicId.title}}</h3>
+            <p>${{this.comicId.price}}</p>
             <img src="{{this.comicId.img}}" alt="">
             <form action="/cart/{{_id}}/delete" method="post">
                 <button type="submit">Delete Item</button>
@@ -11,6 +12,7 @@
         </div>
     {{/each}}
         <form action="cart/checkout" method="post">
+        <h3>Total Price ${{cartSum}}</h3>
             <button type="submit">CHECKOUT</button>
         </form>
 </div>

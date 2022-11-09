@@ -19,8 +19,13 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
     const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
     //We get an array with the price of each comic
     const priceArray = [];
+    let test = carritoItems.quantity
+    console.log(carritoItems)
+    //let itemQuantity = carritoItems.quantity
+    //console.log(itemQuantity);
     carritoItems.map((comic) => {
-    priceArray.push(comic.comicId.price);
+      let quantity = comic.quantity
+    priceArray.push(comic.comicId.price * quantity);
       })
    // We sum the array prices to get the total
     let cartSum = priceArray.reduce(

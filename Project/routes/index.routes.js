@@ -18,12 +18,18 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
     const findCarrito = await Cart.findOne({ userId: currUser})
     const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId')
     
-    //console.log(carritoItems)
+    //We get an array with the price of each comic
     const priceArray = [];
       carritoItems.map((comic) => {
         priceArray.push(comic.comicId.price);
       })
-    console.log(priceArray)
+    //console.log(priceArray)
+    // We sum the array prices to get the total
+    const cartSum = priceArray.reduce(
+      (previousValue, currentValue) => previousValue + currentValue,
+      0
+    );
+    console.log(cartSum)
     res.render("cart", {carritoItems, currUser}) 
   }
   catch(err){

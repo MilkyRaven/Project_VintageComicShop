@@ -18,6 +18,7 @@ const comic = [
     synopsis: "Dr. Death plans to use his new invention of a poisonous pollen extract on any wealthy person who refuses to pay him tribute.",
     price: 16.99,
     reviewIds: [],
+    ratingsArray: [],
     quantity: 4
   },
   
@@ -31,6 +32,7 @@ const comic = [
     synopsis: "Holidaying on a Mediterranean cruise ship, Tintin and his dog Snowy meet wealthy film producer Rastapopoulos and eccentric Egyptologist Sophocles Sarcophagus",
     price: 9.99,
     reviewIds: [],
+    ratingsArray: [],
     quantity: 6
   },
     
@@ -44,6 +46,7 @@ const comic = [
     synopsis: "A millionaire agrees to pay $100,000 to charity if Superman helps to straighten out his wayward daughter who spends money as if it were water as various gambling establishments. Only when an emergency arises does the girl see herself in a different vein.",
     price: 199.9,
     reviewIds: [],
+    ratingsArray: [],
     quantity: 2
   },
   {
@@ -56,6 +59,7 @@ const comic = [
     synopsis: "Mafalda is a girl who faces reality with the ingenuity and tenderness typical of childhood.",
     price: 22.99,
     reviewIds: [],
+    ratingsArray: [],
     quantity: 2
   },
   {
@@ -68,6 +72,7 @@ const comic = [
     synopsis: "The main protagonist, the little boy of the family, is interested in and excited about everything he sees and finds, always trying to be good, but sometimes getting into trouble while doing so; he is very brave and always finds a way to make his friends happy.",
     price: 14.99,
     reviewIds: [],
+    ratingsArray: [],
     quantity: 3
   },
   {
@@ -80,6 +85,7 @@ const comic = [
     synopsis: "Clark arrives for a date with Lois, who is making a donation to the Brentwood Rehabilitation Home. Clark tells her that the place is more interested in money than their young charges. Lois decides they should visit the home so that she can disprove Clark. After a pleasant visit, Lois and Clark are stopped by a charge, Davey Merrill, who cut his hands climbing the wall just to ask for something to eat. Once they feed him, he tells them all about the horrible conditions at the home",
     price: 169.99,
     reviewIds: [],
+    ratingsArray: [],
     quantity: 1
   },
   {
@@ -92,6 +98,7 @@ const comic = [
     synopsis: 'Mr. Mxyztplk teams with the Prankster and Lex Luthor to humiliate Superman by making "plastic proxies" (androids) which make it appear as if Lois has jilted Superman for Mxyztplk, make it seem that Superman has falsely accusing Luthor, and make Superman look like the victim of the pranks of the Prankster. But just as the public begins to wonder why they ever admired him, Superman turns the tables on the trio.',
     price: 99.9,
     reviewIds: [],
+    ratingsArray: [],
     quantity: 3
   },
   {
@@ -104,6 +111,7 @@ const comic = [
     synopsis: "Oscar Francois de Jarjeyes is a young noblewoman raised as a son by her father. As commander of Marie Antoinette's palace guard, Oscar is brought face-to-face with the luxury of King Louis XVI's court at Versailles. Joined by her servant Andre, Oscar is privy to the intrigue and deceit of France's last great royal regime.",
     price: 6.99,
     reviewIds: [],
+    ratingsArray: [],
     quantity: 7
   },
   {
@@ -116,6 +124,7 @@ const comic = [
     synopsis: "Taking place in a post-nuclear futuristic world, the film tells the story of Nausicaä (Shimamoto), the young teenage princess of the Valley of the Wind. She becomes embroiled in a struggle with Tolmekia, a kingdom that tries to use an ancient weapon to eradicate a jungle full of giant mutant insects.",
     price: 34.99,
     reviewIds: [],
+    ratingsArray: [],
     quantity: 1
   },
   {
@@ -128,51 +137,10 @@ const comic = [
     synopsis: "The Caped Crusaders have the task of saving four escaped felons from the radiation they have become contaminated with before they perish or infect others.",
     price: 89.99,
     reviewIds: [],
+    ratingsArray: [],
     quantity: 9 
   }
 ]
-
-// const users = [
-//   {
-//     username: "yaron1",
-//     email: "yaron1@gmail.com",
-//     password: "1234567",
-//   },
-//   {
-//     username: "carol",
-//     email: "carol@gmail.com",
-//     password: "1234567",
-//   },
-//   {
-//     username: "carlas",
-//     email: "carlas@gmail.com",
-//     password: "1234567",
-//   }
-// ]
-const reviews = [
-  {
-    title: "Very good service",
-    userId: "6366346c4ba4c2af26cefabb",
-    comicId: "6366346c4ba4c2af26cefaab",
-    content: "Very good service from the store, fast delivery and the comic is in a very good condition as well",
-    rating: 5
-  },
-  {
-    title: "Nice quality",
-    userId: "6366346c4ba4c2af26cefabc",
-    comicId: "6366346c4ba4c2af26cefaad",
-    content: "The comic arrived in a good quality, service was ok",
-    rating: 4
-  },
-  {
-    title: "Service is good But the comic is too vintage",
-    userId: "6366346c4ba4c2af26cefabd",
-    comicId: "6366346c4ba4c2af26cefaae",
-    content: "The comic arrived in a bad condition ive expected for better condition",
-    rating: 3
-  }
-]
-
 
 const createSeeds = async function () {
   try {

@@ -8,11 +8,12 @@
             <img src="{{this.comicId.img}}" alt="">
             <form action="/cart/{{_id}}/duplicate" method="post">
             <label for="quantity">Quantity:</label>
-            <input type="number" name="comicQuantity" placeholder="1" min="1" max="9">
+            <input type="number" name="comicQuantity" min="1" max="9">
+            {{this.quantity}}
             <button type="submit">Update Quantity</button>
             </form>
             <form action="/cart/{{_id}}/delete" method="post">
-                <button type="submit">Delete Item</button>
+                <button type="submit">Delete All Items</button>
             </form>
         </div>
     {{/each}}

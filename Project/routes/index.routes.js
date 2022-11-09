@@ -20,15 +20,15 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
     //We get an array with the price of each comic
     const priceArray = [];
     carritoItems.map((comic) => {
-         priceArray.push(comic.comicId.price);
-       })
-    // We sum the array prices to get the total
-     let cartSum = priceArray.reduce(
-       (previousValue, currentValue) => previousValue + currentValue,
-       0
-     );
-    console.log(cartSum)
-    res.render("cart", {carritoItems, currUser, cartSum}) 
+    priceArray.push(comic.comicId.price);
+      })
+   // We sum the array prices to get the total
+    let cartSum = priceArray.reduce(
+      (previousValue, currentValue) => previousValue + currentValue,
+      0
+    );
+   console.log(cartSum)
+   res.render("cart", {carritoItems, currUser, cartSum}) 
   }
   catch(err){
     console.log(err)

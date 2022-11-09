@@ -63,8 +63,13 @@ router.get("/catalogue/:comicId", async (req, res, next) => {
   try{
     const currUser = req.session.currentUser
     const comic = await Comic.findById(req.params.comicId).populate("reviewIds")
-    console.log(comic)
-    res.render("product-details", {comic, currUser})
+    //Calculate Averate Rating
+    let ratings = comic.ratingsArray
+    const ratingsToNum = ratings.map(str => {
+      return Number(str)})
+    let sum = ratingsToNum.reduce((partialSum, a) => partialSum + a, 0);
+    let averageRating = Math.round(sum / ratings.length * 10) / 10
+    res.render("product-details", {comic, currUser, averageRating})
   } catch (err){
     console.log("Error getting product details:" + err)
   }
@@ -166,8 +171,10 @@ router.get("/:comicId/review", isLoggedIn, async(req, res, next) => {
         const {comicId} = req.params
         const {title, quantity, description} = req.body
         const newReview = await Review.create({userId: user, username: user.username, comicId: comicId, title: title, content: description, rating: quantity})
-        console.log(newReview)
+        //console.log(newReview)
+        //testing average review
         const updateComic = await Comic.findByIdAndUpdate(comicId, {$push: {reviewIds: newReview}}, {new: true})
+        const updateComicRatings = await Comic.findByIdAndUpdate(comicId, {$push: {ratingsArray: quantity}}, {new: true})
         res.redirect("/")
     }
     catch(err){console.log(err)}

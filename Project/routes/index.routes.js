@@ -16,8 +16,14 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
   try{
     const currUser = req.session.currentUser
     const findCarrito = await Cart.findOne({ userId: currUser})
-    //console.log(findCarrito)
     const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId')
+    
+    //console.log(carritoItems)
+    const priceArray = [];
+      carritoItems.map((comic) => {
+        priceArray.push(comic.comicId.price);
+      })
+    console.log(priceArray)
     res.render("cart", {carritoItems, currUser}) 
   }
   catch(err){

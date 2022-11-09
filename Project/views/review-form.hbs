@@ -3,8 +3,10 @@
   <label> Title:
     <input type="text" name="title" value="Title"/>
   </label>
-
-  <label> Rate:
+  <label> Rating:
+    <input type="number" id="quantity" name="quantity" min="1" max="5">
+  </label>
+  {{!-- <label> Rate:
     <input type="radio" name="star" value="⭐️">
         <label for="html">Bad ⭐️</label>
     <input type="radio" name="star" value="⭐️⭐️">
@@ -14,9 +16,7 @@
     <input type="radio" name="star" value="⭐️⭐️⭐️⭐️">
         <label for="html">Good⭐️⭐️⭐️⭐️</label>
     <input type="radio" name="star" value="⭐️⭐️⭐️⭐️⭐️">
-        <label for="html">Awesome!⭐️⭐️⭐️⭐️⭐️</label>
-  
-
+        <label for="html">Awesome!⭐️⭐️⭐️⭐️⭐️</label> --}}
   <label> Description:
     <textarea name="description" cols="30" rows="4"> {{description}}</textarea>
   </label>

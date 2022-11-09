@@ -14,10 +14,9 @@ const Review = require('../models/Reviews.model');
 
 router.get("/cart", isLoggedIn, async (req, res, next) => {
   try{
-    const currUser = req.session.currentUser
-    const findCarrito = await Cart.findOne({ userId: currUser})
-    const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId')
-    //TEST
+    const currUser = req.session.currentUser;
+    const findCarrito = await Cart.findOne({ userId: currUser});
+    const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
     //We get an array with the price of each comic
     const priceArray = [];
       carritoItems.map((comic) => {
@@ -29,6 +28,7 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
     if (priceArray[0]){
       somethingOnCart = true
     }
+
     console.log(somethingOnCart)
     //console.log(priceArray)
     // We sum the array prices to get the total

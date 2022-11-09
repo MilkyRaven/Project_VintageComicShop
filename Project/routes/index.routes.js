@@ -19,25 +19,16 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
     const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
     //We get an array with the price of each comic
     const priceArray = [];
-      carritoItems.map((comic) => {
-        priceArray.push(comic.comicId.price);
-      })
-
-    //TEST -----
-    let somethingOnCart = false
-    if (priceArray[0]){
-      somethingOnCart = true
-    }
-
-    console.log(somethingOnCart)
-    //console.log(priceArray)
+    carritoItems.map((comic) => {
+         priceArray.push(comic.comicId.price);
+       })
     // We sum the array prices to get the total
-    let cartSum = priceArray.reduce(
-      (previousValue, currentValue) => previousValue + currentValue,
-      0
-    );
-    //console.log(cartSum)
-    res.render("cart", {carritoItems, currUser, cartSum, somethingOnCart}) 
+     let cartSum = priceArray.reduce(
+       (previousValue, currentValue) => previousValue + currentValue,
+       0
+     );
+    console.log(cartSum)
+    res.render("cart", {carritoItems, currUser, cartSum}) 
   }
   catch(err){
     console.log(err)
@@ -51,18 +42,7 @@ router.get("/", async (req, res, next) => {
   
   //TEST
   try{
-    const findCarrito = await Cart.findOne({ userId: currUser});
-    const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
-    //We get an array with the price of each comic
-    const priceArray = [];
-      carritoItems.map((comic) => {
-        priceArray.push(comic.comicId.price);
-      })
-    let somethingOnCart = false
-    if (priceArray[0]){
-      somethingOnCart = true
-    }
-    res.render("index", {currUser, somethingOnCart});
+    res.render("index", {currUser});
   }
   catch(err){
     console.log(err)
@@ -73,19 +53,7 @@ router.get("/catalogue", async (req, res, next) => {
   try{
   const currUser = req.session.currentUser
   const allComics = await Comic.find()
-   //CHECK IF THE CART HAS SOMETHING INSIDE OR NOT 
-   const findCarrito = await Cart.findOne({ userId: currUser});
-   const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
-   //We get an array with the price of each comic
-   const priceArray = [];
-     carritoItems.map((comic) => {
-       priceArray.push(comic.comicId.price);
-     })
-   let somethingOnCart = false
-   if (priceArray[0]){
-     somethingOnCart = true}
-   //-------------------------------
-  res.render("catalogue", {allComics, currUser, somethingOnCart})
+  res.render("catalogue", {allComics, currUser})
   } catch (err) {
     console.log("Error getting catalogue:" + err)
   }
@@ -95,19 +63,7 @@ router.get("/catalogue/:comicId", async (req, res, next) => {
   try{
     const currUser = req.session.currentUser
     const comic = await Comic.findById(req.params.comicId).populate("reviewIds")
-     //CHECK IF THE CART HAS SOMETHING INSIDE OR NOT 
-     const findCarrito = await Cart.findOne({ userId: currUser});
-     const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
-     //We get an array with the price of each comic
-     const priceArray = [];
-       carritoItems.map((comic) => {
-         priceArray.push(comic.comicId.price);
-       })
-     let somethingOnCart = false
-     if (priceArray[0]){
-       somethingOnCart = true}
-     //-------------------------------
-    res.render("product-details", {comic, currUser, somethingOnCart})
+    res.render("product-details", {comic, currUser})
   } catch (err){
     console.log("Error getting product details:" + err)
   }
@@ -183,19 +139,7 @@ router.get("/myprofile", isLoggedIn, async(req, res, next) => {
   const currUser = req.session.currentUser
   try{
     const findUser = await User.findById(currUser).populate("purchases")
-    //CHECK IF THE CART HAS SOMETHING INSIDE OR NOT 
-    const findCarrito = await Cart.findOne({ userId: currUser});
-    const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
-    //We get an array with the price of each comic
-    const priceArray = [];
-      carritoItems.map((comic) => {
-        priceArray.push(comic.comicId.price);
-      })
-    let somethingOnCart = false
-    if (priceArray[0]){
-      somethingOnCart = true}
-    //-------------------------------
-    res.render("profile", {findUser, currUser, somethingOnCart})
+    res.render("profile", {findUser, currUser})
   }
   catch(err){
     console.log(err)
@@ -209,19 +153,7 @@ router.get("/:comicId/review", isLoggedIn, async(req, res, next) => {
     const {comicId} = req.params
     const comicToReview = await Comic.findById(comicId)
     console.log(comicToReview)
-    //CHECK IF THE CART HAS SOMETHING INSIDE OR NOT
-    const findCarrito = await Cart.findOne({ userId: currUser});
-    const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
-    //We get an array with the price of each comic
-    const priceArray = [];
-      carritoItems.map((comic) => {
-        priceArray.push(comic.comicId.price);
-      })
-    let somethingOnCart = false
-    if (priceArray[0]){
-      somethingOnCart = true}
-    //----------------------------
-    res.render("review-form", {currUser, comicToReview, somethingOnCart})
+    res.render("review-form", {currUser, comicToReview})
   }
   catch(err){
     console.log(err)

@@ -11,6 +11,7 @@ const comicSchema = new Schema(
     synopsis: String,
     price: Number,
     reviewIds: [{ type: Schema.Types.ObjectId, ref: 'Review'}],
+    rating: Number,
     quantity: Number
   }
 );

@@ -488,4 +488,28 @@ details[open]::before {
 
 
 /* ===================================== menu bar ================================= */
+/* ===================================== map  ================================= */
+.map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.location {
+  width: 100%;
+  height: 300px;
+}
+
+.marker{
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+}
+.hidden {
+  display: none;
+}
+/* ===================================== map  ================================= */
+
 

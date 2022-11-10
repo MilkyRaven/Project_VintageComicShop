@@ -30,10 +30,10 @@ h1 {
   display: flex;
   flex-flow: row nowrap;
 }
-.red, .hero-text > p > strong, .shop-btn{
+.red, .hero-text > p > strong, .shop-btn, .review-form > p > a{
   color: #D07D56;
 }
-.blue{
+.blue, .directions {
   color: #3F7B90;
 }
 .green{
@@ -274,7 +274,8 @@ color: #3F7B90;
   color: #3F7B90;
   font-size: 1.3em;
 }
-.review-form > label > input, .review-form > label > textarea {
+
+.review-form > label > input, .review-form > label > textarea, #email {
   border: none;
   border-radius: 10px;
   padding: 10px;
@@ -295,7 +296,6 @@ color: #3F7B90;
 .review-form > button {
 margin: 15px;
 }
-
 
 /*LOGIN PAGE */
 .login-card{
@@ -569,6 +569,11 @@ i {
   border-radius: 8px;
   padding: 10px;
 }
+/* find us */
+.directions {
+  margin: 20px;
+  font-size: 1.2em;
+}
 
 /* ===================================== menu bar ================================= */
 :root {
@@ -698,12 +703,6 @@ details[open]::before {
   height: 300px;
 }
 
-.marker{
-  width: 20px;
-  height: 20px;
-  background-color: black;
-  border-radius: 50%;
-}
 .hidden {
   display: none;
 }

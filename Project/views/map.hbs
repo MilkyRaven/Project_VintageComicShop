@@ -1,3 +1,27 @@
+<h1>Don't be shy, contact us!</h1>
+<form action="/map" method="post">
+  <label> Your question:
+    <input type="text" required>
+  </label>
+  <label 
+    for="email">Enter your E-mail address:
+  </label>
+  <input type="email" id="email"size="30" required>
+  <button type="submit"> submit </button>
+</form>
+
+<form action="/map" method="post">
+  <p>
+    <a href="tel:123-456-7890"> CLICK HERE TO CALL </a>
+    <label for="phone">Or enter your phone number and we call you back!:</label>
+    <input type="tel" id="phone" name="phone"required>  
+    <button type="submit"> submit </button>
+  </p>
+</form>
+
+<h1>Or else, find us at</h1>
+<p>C. de Pamplona, 96, 08018 Barcelona</p>
+<p>Opening Hours: 09:00 - 18:00</p>
 {{!-- Display the map--}}
 <div class="location" id="map"></div>
 

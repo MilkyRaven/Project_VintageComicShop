@@ -30,10 +30,10 @@ h1 {
   display: flex;
   flex-flow: row nowrap;
 }
-.red, .hero-text > p > strong, .shop-btn{
+.red, .hero-text > p > strong, .shop-btn, .review-form > p > a{
   color: #D07D56;
 }
-.blue{
+.blue, .directions {
   color: #3F7B90;
 }
 .green{
@@ -194,6 +194,9 @@ header {
   flex-flow: row wrap;
   justify-content: space-around;
 }
+#catalogue-img {
+  width: 200px;
+}
 .product-card {
   display: flex;
   flex-flow: column;
@@ -206,7 +209,14 @@ header {
   border: none;
   outline: none;
 }
-
+.product-card > a > button {
+  background-color: white;
+  border: none;
+  color:#D07D56;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
 /* PRODUCT DETAILS SECTION */
 .product-details {
   margin: 30px;
@@ -215,28 +225,45 @@ header {
   background-color: white;
   color: #D07D56;
   border-radius: 10px;
-  padding: 10px;
+  padding: 15px;
   font-weight: 800;
 }
 .product-details-card > img {
-  width: 300px;
+  width: 280px;
   display: flex;
+  padding: 10px;
 }
 .product-details-card > h4, .product-details-card > p {
 color: #3F7B90;
 }
 
-.product-details-card > button, .review-form > button {
+.product-details-card > form > button, .review-form > button {
   background-color:#D07D56;
   border: none;
+  margin: 10px;
   padding: 10px;
   font-weight: 800;
   border-radius: 10px;
   color:white;
 }
 /* REVIEWS */
-.reviews > h3 {
+.reviews > p, .rating-titles {
   color: #3F7B90;
+}
+.reviews > h4 {
+  color:#D07D56; 
+}
+.reviews > hr {
+  margin: 10px;
+  border-top: 1px solid #727f84;
+}
+.average {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+.reviews > div > img {
+  width: 200px;
 }
 /* REVIEW FORM */
 .review-form {
@@ -247,7 +274,8 @@ color: #3F7B90;
   color: #3F7B90;
   font-size: 1.3em;
 }
-.review-form > label > input, .review-form > label > textarea {
+
+.review-form > label > input, .review-form > label > textarea, #email {
   border: none;
   border-radius: 10px;
   padding: 10px;
@@ -268,7 +296,6 @@ color: #3F7B90;
 .review-form > button {
 margin: 15px;
 }
-
 
 /*LOGIN PAGE */
 .login-card{
@@ -542,6 +569,11 @@ i {
   border-radius: 8px;
   padding: 10px;
 }
+/* find us */
+.directions {
+  margin: 20px;
+  font-size: 1.2em;
+}
 
 /* ===================================== menu bar ================================= */
 :root {
@@ -556,7 +588,6 @@ summary {
   writing-mode: vertical-lr;
   text-align: center;
   padding: 12px 10px;
-  width: 23px;
   height: 17px;
   background-color: var(--primColor);
   border: 2px solid var(--secoColor);
@@ -577,8 +608,8 @@ summary::before {
   content: "";
 }
 summary::after {
-  content: "III";
-  letter-spacing: -1px;
+  content: "|||";
+  letter-spacing: -0.2px;
 }
 summary:hover {
   transform: scale(1.1);
@@ -593,7 +624,7 @@ details[open] .menu {
   animation-name: menuAnim;
 }
 details[open] summary::before {
-  content: "X";
+  content: "💬";
 }
 details[open] summary::after {
   content: "";
@@ -671,12 +702,6 @@ details[open]::before {
   height: 300px;
 }
 
-.marker{
-  width: 20px;
-  height: 20px;
-  background-color: black;
-  border-radius: 50%;
-}
 .hidden {
   display: none;
 }

@@ -462,6 +462,11 @@ i {
 .empty > img {
   width: 300px;
 }
+/* CHECKOUT CONTAINER */
+.checkout-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
 
 /* ===================================== menu bar ================================= */
 :root {

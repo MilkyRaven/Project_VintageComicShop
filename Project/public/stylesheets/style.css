@@ -773,7 +773,7 @@ details[open]::before {
 
 
 .spinner-box {
-  width: 250px;
+  width: 180px;
   height: 250px;
   display: flex;
   justify-content: center;
@@ -781,58 +781,6 @@ details[open]::before {
   background-color: transparent;
 }
 
-
-/* SOLAR SYSTEM */
-
-.leo {
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 50%;
-}
-
-.blue-orbit {
-	width: 165px;
-	height: 165px;
-  border: 1px solid #3F7B90;
-  -webkit-animation: spin3D 4s linear .2s infinite;
-}
-
-.green-orbit {
-	width: 120px;
-	height: 120px;
-  border: 1px solid #077B1B;
-  -webkit-animation: spin3D 3s linear 0s infinite;
-}
-
-.red-orbit {
-	width: 90px;
-	height: 90px;
-  border: 1px solid #D07D57;
-  -webkit-animation: spin3D 2s linear 0s infinite;
-}
-
-.white-orbit {
-	width: 60px;
-	height: 60px;
-  border: 2px solid #D4AD55;
-  -webkit-animation: spin3D 7s linear 0s infinite;
-}
-
-.w1 {
-  transform: rotate3D(1, 1, 1, 90deg);
-}
-
-.w2 {
-  transform: rotate3D(1, 2, .5, 90deg);
-}
-
-.w3 {
-  transform: rotate3D(.5, 1, 2, 90deg);
-}
-
-/* ===================================== about spinner  ================================= */
 /* ===================================== about container ================================= */
 
 .aboutcon {
@@ -840,4 +788,51 @@ details[open]::before {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.aboutcon > h2 {
+  text-align: center;
+  font-size: 2em;
+  color: #3F7B90;
+}
+.aboutcon > img {
+  width: 280px;
+  margin: 30px;
+}
+.aboutcon > p {
+  text-align: center;
+  font-size: 1.3em;
+  color:#727f84;
+  padding: 20px;
+}
+/* GITHUBS */
+.our-profiles {
+  display: flex;
+  flex-flow: column wrap;
+}
+.our-githubs {
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 2.2em;
+}
+#milki, #yaron {
+  font-size: 0.6em;
+  text-align: center;
+  padding: 15px;
+}
+#yaron-git, #yaron {
+color:#3F7B90;
+--fa-animation-delay: 1s;
+--fa-animation-duration: 2s;
+}
+#milki-git, #milki {
+color:#D4AD55;
+--fa-animation-duration: 2s;
+}
+
+/* FIXING LOGIN / SIGNUP */
+#login-signup {
+  font-size: 3em;
+  font-family: "Gudea Bold";
+  color: #3F7B90;
+  text-align: center;
 }

@@ -411,11 +411,12 @@ i {
   align-items: center;
 }
 #quantity > button {
-  border: white;
-  border-radius: 5px;
-  margin: 3px;
-  color: white;
-  background: none;
+  background-color:white;
+  border-style: none;
+  border-radius: 6px;
+  padding: 5px;
+  margin: 5px;
+  color:#3F7B90;
 }
 #number {
   color: #3F7B90;

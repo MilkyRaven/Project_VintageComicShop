@@ -14,16 +14,19 @@
     <br>
 
         <div class="reviews">
-            <h2>Reviews</h2>
-            {{#if averageRating}}
-            <h3>Average rating: {{averageRating}} ⭐️</h3>
-            {{/if}}
+            <h2>Your reviews</h2>
+                <div class="average">
+                        <img src="/images/Captura_de_pantalla_2022-11-10_a_las_15.05.36-removebg-preview.png" alt="">
+                    {{#if averageRating}}
+                        <h3>Average rating: <br> {{averageRating}} ⭐️</h3>
+                    {{/if}}
+                </div>
             {{#each comic.reviewIds}}
             <h3>{{title}}</h3>
-            <h4>Rating 
-                {{rating}} ⭐️</h4>
-            <h4>Username: {{username}} </h4>
+            <h4> Rating {{rating}} ⭐️</h4>
+            <h4> Username: {{username}} </h4>
             <p>{{content}}</p>
+            <br>
             {{/each}}
         </div>
     </div>

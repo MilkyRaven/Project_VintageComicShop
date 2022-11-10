@@ -1,24 +1,14 @@
-<h2>Leave a review about {{comicToReview.title}} by {{comicToReview.author}} here</h2>
-<form action="/{{comicToReview._id}}/review/post" method="post">
-  <label> Title:
+
+<form class="review-form" action="/{{comicToReview._id}}/review/post" method="post">
+  <h2>Leave a review about <strong>{{comicToReview.title}} by {{comicToReview.author}}</strong> here</h2>
+  <label> Title
     <input type="text" name="title" value="Title"/>
   </label>
-  <label> Rating:
-    <input type="number" id="quantity" name="quantity" min="1" max="5">
+  <label> Rating
+    <input type="number" id="quantity" name="quantity" placeholder="5" min="1" max="5">
   </label>
-  {{!-- <label> Rate:
-    <input type="radio" name="star" value="⭐️">
-        <label for="html">Bad ⭐️</label>
-    <input type="radio" name="star" value="⭐️⭐️">
-        <label for="html">Meeh..⭐️⭐️</label>
-    <input type="radio" name="star" value="⭐️⭐️⭐️">
-        <label for="html">Ok⭐️⭐️⭐️</label>
-    <input type="radio" name="star" value="⭐️⭐️⭐️⭐️">
-        <label for="html">Good⭐️⭐️⭐️⭐️</label>
-    <input type="radio" name="star" value="⭐️⭐️⭐️⭐️⭐️">
-        <label for="html">Awesome!⭐️⭐️⭐️⭐️⭐️</label> --}}
-  <label> Description:
-    <textarea name="description" cols="30" rows="4"> {{description}}</textarea>
+  <label> Description
+    <textarea name="description"  cols="30" rows="4">Leave your review here! ⭐️ {{description}}</textarea>
   </label>
 
   <button type="submit"> Post your review </button>

@@ -295,6 +295,7 @@ footer {
   color: white;
   height: 350px;
   text-align: center;
+  bottom: 0;
 }
 footer > h2 {
   font-size: 2em;
@@ -331,17 +332,90 @@ i {
 .item-card {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 20px;
   color: white;
   background-color: #3F7B90;
   text-align: left;
+  margin: 20px;
+  border-radius: 10px;
 }
-.item-card > img, .purchases-img{
+.item-card > h3 {
+  text-align: center;
+  padding: 5px;
+}
+#quantity {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+#quantity > button {
+  border: white;
+  border-radius: 5px;
+  margin: 3px;
+  color: white;
+  background: none;
+}
+#number {
+  color: #3F7B90;
+  padding: 4px;
+  margin: 5px;
+  border: none;
+  border-radius: 3px;
+}
+.paying-btns {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
+#promo-btn {
+  border:#3F7B90;
+  border-style:solid;
+  font-size: 1.2em;
+  background-color: white;
+  color:#3F7B90;
+  padding: 10px;
+  margin: 25px;
+  border-radius: 10px;
+  font-family: "Gudea Regular";
+}
+#checkout-btn {
+  border: none;
+  font-size: 1.5em;
+  background-color:#3F7B90;
+  color: white;
+  padding: 10px;
+  margin: 25px;
+  border-radius: 10px;
+  font-family: "Gudea Bold";
+}
+.purchases-img{
   width: 70px;
-
+}
+.cart-img {
+  padding: 5px;
+  width: 40px;
+}
+#checkout {
+  text-align: center;
+  color: #3F7B90;
+  font-size: 1.2em;
 } 
-
+#delete {
+  background:none;
+  border: none;
+  padding-right: 10px;
+}
+.secured {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.secured > svg {
+  padding: 10px;
+}
 /* USER PROFILE CSS */
 .user-container{
   font-family: "Gudea-Regular";
@@ -371,6 +445,11 @@ i {
   flex-flow: column;
   align-items: center;
   margin: 10px;
+}
+.section-title {
+  color: #727f84;
+  padding-left: 25px;
+  font-size: 1.5em;
 }
 
 /* ===================================== menu bar ================================= */

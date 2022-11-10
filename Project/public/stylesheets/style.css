@@ -451,6 +451,20 @@ i {
   padding-left: 25px;
   font-size: 1.5em;
 }
+.empty {
+  color: #3F7B90;
+  margin: 20px;
+  display: flex;
+  flex-flow: column;
+  align-content: flex-start;
+  align-items: center;
+}
+.empty > img {
+  width: 300px;
+}
+.empty > button {
+  border: none;
+}
 
 /* ===================================== menu bar ================================= */
 :root {

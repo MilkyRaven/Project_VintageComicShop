@@ -324,7 +324,6 @@ margin: 15px;
 footer {
   background-color:#D07D56;
   color: white;
-  height: 350px;
   text-align: center;
   bottom: 0;
 }
@@ -339,7 +338,7 @@ footer > h2 {
   padding-top: 20px;
 }
 .social-media > img {
-  width: 100px;
+  width: 180px;
 }
 i {
   color: white;

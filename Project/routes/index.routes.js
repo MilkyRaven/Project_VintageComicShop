@@ -225,4 +225,25 @@ router.get("/:comicId/review", isLoggedIn, async(req, res, next) => {
  })
 
 
+
+
+
+ router.get("/about", async (req, res) => {
+  const currUser = req.session.currentUser
+  try{
+    if (currUser) {
+      const findCarrito = await Cart.findOne({ userId: currUser});
+      const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId');
+      res.render("about", {currUser, carritoItems});
+    } 
+    else {
+      res.render("about", {currUser});
+    }
+  }
+  catch(err){
+    console.log(err)
+  }
+});
+
+
 module.exports = router;

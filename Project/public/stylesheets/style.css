@@ -226,7 +226,7 @@ header {
 color: #3F7B90;
 }
 
-.product-details-card > button {
+.product-details-card > button, .review-form > button {
   background-color:#D07D56;
   border: none;
   padding: 10px;
@@ -238,6 +238,37 @@ color: #3F7B90;
 .reviews > h3 {
   color: #3F7B90;
 }
+/* REVIEW FORM */
+.review-form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  margin: 20px;
+  color: #3F7B90;
+  font-size: 1.3em;
+}
+.review-form > label > input, .review-form > label > textarea {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.9em;
+  color:#727f84;
+  font-family: "Gudea Regular";
+}
+.review-form > h2 {
+  margin-bottom: 15px;
+}
+.review-form > h2 > strong {
+  color: #D07D56;
+}
+.review-form > label {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.review-form > button {
+margin: 15px;
+}
+
 
 /*LOGIN PAGE */
 .login-card{
@@ -293,8 +324,8 @@ color: #3F7B90;
 footer {
   background-color:#D07D56;
   color: white;
-  height: 350px;
   text-align: center;
+  bottom: 0;
 }
 footer > h2 {
   font-size: 2em;
@@ -307,7 +338,7 @@ footer > h2 {
   padding-top: 20px;
 }
 .social-media > img {
-  width: 100px;
+  width: 180px;
 }
 i {
   color: white;
@@ -331,46 +362,173 @@ i {
 .item-card {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 20px;
   color: white;
   background-color: #3F7B90;
   text-align: left;
+  margin: 20px;
+  border-radius: 10px;
 }
-.item-card > img, .purchases-img{
+.item-card > h3 {
+  text-align: center;
+  padding: 5px;
+}
+#quantity {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+#quantity > button {
+  border: white;
+  border-radius: 5px;
+  margin: 3px;
+  color: white;
+  background: none;
+}
+#number {
+  color: #3F7B90;
+  padding: 4px;
+  margin: 5px;
+  border: none;
+  border-radius: 3px;
+}
+.paying-btns {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
+#promo-btn {
+  border:#3F7B90;
+  border-style:solid;
+  font-size: 1.2em;
+  background-color: white;
+  color:#3F7B90;
+  padding: 10px;
+  margin: 25px;
+  border-radius: 10px;
+  font-family: "Gudea Regular";
+}
+#checkout-btn {
+  border: none;
+  font-size: 1.5em;
+  background-color:#3F7B90;
+  color: white;
+  padding: 10px;
+  margin: 25px;
+  border-radius: 10px;
+  font-family: "Gudea Bold";
+}
+.purchases-img{
   width: 70px;
-
+}
+.cart-img {
+  padding: 5px;
+  width: 40px;
+}
+#checkout {
+  text-align: center;
+  color: #3F7B90;
+  font-size: 1.2em;
 } 
-
+#delete {
+  background:none;
+  border: none;
+  padding-right: 10px;
+}
+.secured {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.secured > svg {
+  padding: 10px;
+}
 /* USER PROFILE CSS */
+.hello-user {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.hello-user > p {
+  font-size: 1.4em;
+}
 .user-container{
   font-family: "Gudea-Regular";
   color: #3F7B90;
 }
 .user-container h2 {
-  font-size: 3em;
+  font-size: 2.2em;
+  margin: 10px;
   color: #3F7B90;
   font-family: "Skranji";
+  text-align: center;
 }
-.user-container h2 > strong {
+.user-container h2 > strong, .user-container h3 > strong {
   color: #D07D56; 
 }
 .user-container > h3 {
   font-size: 1.5em;
+  margin-left: 25px;
+  padding-top: 10px;
   color: #3F7B90;
-  background-color: white;
+  text-align: center;
+}
+.user-container > p {
+  font-size: 1.3em;
+  margin-left: 25px;
+  text-align: center;
+}
+#profile-pic {
+  width: 300px;
 }
 .purchase-history {
   display: flex;
-  flex-flow: row-reverse;
+  flex-flow: column-reverse wrap;
   background-color: white;
   justify-content: space-evenly;
+  margin: 20px;
 }
 .purchases-card {
   display: flex;
   flex-flow: column;
   align-items: center;
   margin: 10px;
+}
+.purchases-card > h4 {
+  margin: 10px;
+  font-size: 1.2em;
+}
+.purchases-card > a {
+  background-color: #D07D56;
+  color: white;
+  font-size: 1.3em;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 8px;
+}
+.section-title {
+  color: #727f84;
+  padding-left: 25px;
+  font-size: 1.5em;
+}
+.empty {
+  color: #3F7B90;
+  margin: 20px;
+  display: flex;
+  flex-flow: column;
+  align-content: flex-start;
+  align-items: center;
+}
+.empty > img {
+  width: 300px;
+}
+/* CHECKOUT CONTAINER */
+.checkout-container {
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 /* ===================================== menu bar ================================= */

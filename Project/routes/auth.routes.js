@@ -152,15 +152,16 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// GET /auth/logout
+// GET /auth/logout  will stay at the same page if not protected
 router.post("/logout", isLoggedIn, (req, res) => {
+  const originRoute = req.headers.referer.split(":3000")[1]
   req.session.destroy((err) => {
     if (err) {
       res.status(500).render("auth/logout", { errorMessage: err.message });
       return;
     }
 
-    res.redirect("/");
+    res.redirect(originRoute);
   });
 });
 

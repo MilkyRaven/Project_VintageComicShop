@@ -529,6 +529,18 @@ i {
 .checkout-container {
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
+  color: #3F7B90;
+}
+.checkout-container > img {
+  width: 250px;
+}
+.checkout-container > a {
+  color: white;
+  background-color: #3F7B90;
+  margin: 10px;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 /* ===================================== menu bar ================================= */

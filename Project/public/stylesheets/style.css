@@ -552,9 +552,11 @@ i {
   flex-flow: column;
   align-content: flex-start;
   align-items: center;
+  
 }
 .empty > img {
   width: 300px;
+  margin: 30px;
 }
 /* CHECKOUT CONTAINER */
 .checkout-container {

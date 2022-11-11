@@ -28,7 +28,7 @@ Check live site: https://qmic.fly.dev/ 🚀
 
 ## **How to use?**
 You can test it directly from the link provided at the beginning of this Readme, but in case you want to test it locally, you can follow the next steps:
--Clone this repo
+- Clone this repo
 - cd Project
 - npm install
 - cd bin

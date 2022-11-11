@@ -1,19 +1,18 @@
-# E-commerce project by Carol González & Yaron Peres.
+# Vintage Comics e-commerce project by Carol González & Yaron Peres
 
 ---
-Site: https://qmic.fly.dev/
+Check live site: https://qmic.fly.dev/ 🚀
 
 --- 
 
-## **Comics Online Shop**
-- Mobile application.
-- User can create account, login, view profile of history purchases and leave a review.
-- User can view variety of comics in the catalogue.
-- User can add items to the cart and it will stay until removed or purchased.
-- User can manipulate items in the cart and observe the total price of the items in the cart.
-- User can enjoy contact expirience thats includes phone, mail and mail.
-- User is restricted to enter serveral areas if he is not logged in.
-- User can logout and to stay at the same page (if not restricted).
+## **What is this project?**
+- A web application (mobile first, still working on responsive features)
+- User can create account, login, view profile of purchase history and leave reviews
+- User can view a variety of comics in the catalogue
+- User can add items to the cart and they will stay until removed or purchased
+- User can manipulate items in the cart and observe the total price of the items
+- User is restricted to enter serveral areas if he/she is not logged in
+- User can logout and be redirected to the same page (if not restricted)
 
 ---
 
@@ -24,3 +23,16 @@ Site: https://qmic.fly.dev/
 - MongoDB
 - JavaScript
 - CSS
+
+---
+
+## **How to use?**
+You can test it directly from the link provided at the beginning of this Readme, but in case you want to test it locally, you can follow the next steps:
+-Clone this repo
+- cd Project
+- npm install
+- cd bin
+- node seeds.js (check that you have MongoDB installed)
+- cd ..
+- cd node server.js app.js 
+- The project should be running on port 3000! ⭐️ 
